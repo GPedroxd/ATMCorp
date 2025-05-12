@@ -2,6 +2,15 @@
 
 public sealed class Money : ValueObject<Money>
 {
+    public static readonly Money None = new(0, 0, 0, 0, 0, 0, 0);
+    public static readonly Money FiveCent = new(1, 0, 0, 0, 0, 0, 0);
+    public static readonly Money TenCent = new(0, 1, 0, 0, 0, 0, 0);
+    public static readonly Money Quarter = new(0, 0, 1, 0, 0, 0, 0);
+    public static readonly Money Dollar = new(0, 0, 0, 1, 0, 0, 0);
+    public static readonly Money Fivedollar = new(0, 0, 0, 0, 1, 0, 0);
+    public static readonly Money TenDollar = new(0, 0, 0, 0, 0, 1, 0);
+    public static readonly Money TwentyDollar = new(0, 0, 0, 0, 0, 0,1);
+
     public int FiveCentCount { get; init; }
     public int TenCentCount { get; init; }
     public int QuarterCentCount { get; init; }

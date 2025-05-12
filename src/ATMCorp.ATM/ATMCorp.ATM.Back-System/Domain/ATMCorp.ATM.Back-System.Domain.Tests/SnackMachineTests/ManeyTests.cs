@@ -1,17 +1,17 @@
 ﻿using ATMCorp.ATM.Back_System.Domain.SnackMachine;
 using FluentAssertions;
 
-namespace ATMCorp.ATM.Back_System.Domain.Tests.SnackMachine;
+namespace ATMCorp.ATM.Back_System.Domain.Tests.SnackMachineTests;
 
 public class ManeyTests
 {
-    
+
     [Fact]
     public void SumOfTwoMoneysProducesCurrectResult()
     {
-        Money m1 = new(1,2,3,4,5,6,7);
+        Money m1 = new(1, 2, 3, 4, 5, 6, 7);
         Money m2 = new(1, 2, 3, 4, 5, 6, 7);
-    
+
         var sum = m1 + m2;
 
         sum.FiveCentCount.Should().Be(2);
@@ -44,7 +44,7 @@ public class ManeyTests
     }
 
     [Theory]
-    [InlineData(-1,0,0,0,0,0,0)]
+    [InlineData(-1, 0, 0, 0, 0, 0, 0)]
     [InlineData(0, -2, 0, 0, 0, 0, 0)]
     [InlineData(0, 0, -3, 0, 0, 0, 0)]
     [InlineData(0, 0, 0, -4, 0, 0, 0)]
@@ -128,11 +128,11 @@ public class ManeyTests
     [Fact]
     public void CannotSubtractMoreMoneyThanExists()
     {
-        Money m1 = new(0,0,1,1,0,0,0);
-        Money m2 = new(1,3,1,0,0,0,0);
+        Money m1 = new(0, 0, 1, 1, 0, 0, 0);
+        Money m2 = new(1, 3, 1, 0, 0, 0, 0);
 
         var action = () => m1 - m2;
-        
+
         action.Should().Throw<InvalidOperationException>();
     }
 }
